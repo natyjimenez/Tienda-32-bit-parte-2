@@ -1,32 +1,68 @@
+<!-- Template -->
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="app">
+    <div class="cabecera">
+      <img src='assets/img/mario.png' class="imgMario">
+      <h1 class="txtCabecera">Tienda de Juegos 32 bit</h1>
+      <h2>Juegos de PC y consolas</h2>
     </div>
-    <router-view/>
+    <div class="navBar">
+      <b-nav tabs>
+        <b-nav-item><router-link :to="{ name: 'Inicio' }" class="linkNav">Inicio</router-link></b-nav-item>
+        <b-nav-item><router-link :to="{ name: 'Busqueda' }" class="linkNav">Busqueda</router-link></b-nav-item>
+        <b-nav-item><router-link :to="{ name: 'Ventas' }" class="linkNav">Ventas</router-link></b-nav-item>
+        <b-nav-item><router-link :to="{ name: 'Inventario' }" class="linkNav">Inventario</router-link></b-nav-item>
+      </b-nav>
+    </div>
+    <router-view class="contenidoPagina"></router-view>
   </div>
 </template>
 
+<!-- Script -->
+<script>
+export default {
+  name: "App",
+};
+</script>
+
+<!-- Estilos-->
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', 'Press Start 2P', sans-serif;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.linkNav {
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(253, 143, 0) ;
+}
+.cabecera {
+  max-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: rgb(12, 12, 12);
+  color: rgb(236, 236, 236);
+}
+.imgMario {
+  width: 50px;
+  margin-right: 10px;
+  display: flex;
+  display: inline-block;
+}
+.txtCabecera {
+  display: inline-block;
+  font-family: 'Press Start 2P';
+  font-size: 30px;
+}
+.navBar {
+  max-width: 1200px;
+  margin: auto;
+}
+.contenidoPagina {
+  max-width: 1200px;
+  margin: auto;
 }
 </style>
